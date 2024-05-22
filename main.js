@@ -1,4 +1,3 @@
-import * as THREE from 'three';
 
 // Basic setup
 const scene = new THREE.Scene();
@@ -9,7 +8,7 @@ document.body.appendChild(renderer.domElement);
 
 // Add a simple object
 const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const material = new THREE.MeshBasicMaterial({ color: 0x00aa00 });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
