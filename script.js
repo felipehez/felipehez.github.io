@@ -22,3 +22,26 @@ function animate() {
 }
 
 animate();
+
+import { gsap } from "gsap";
+
+gsap.to(cube.rotation, { duration: 2, x: Math.PI * 2, y: Math.PI * 2 });
+
+window.addEventListener('click', (event) => {
+    // Calculate mouse position in normalized device coordinates (-1 to +1)
+    const mouse = new THREE.Vector2(
+        (event.clientX / window.innerWidth) * 2 - 1,
+        -(event.clientY / window.innerHeight) * 2 + 1
+    );
+
+    // Raycasting to detect objects
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(scene.children);
+
+    if (intersects.length > 0) {
+        // Perform action on intersected object
+        console.log('Object clicked:', intersects[0].object);
+    }
+});
+
